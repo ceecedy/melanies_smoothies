@@ -32,7 +32,7 @@ ingredients_list = st.multiselect(
     max_selections = 5
 )
 # display the response on api request.
-st.text(fruityvice_response)
+fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
 # check if the ingredients_list has values 
 if ingredients_list:
