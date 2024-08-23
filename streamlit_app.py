@@ -53,7 +53,7 @@ if ingredients_list:
     if time_to_insert:
         # function to insert sql script. 
         session.sql(my_insert_stmt).collect()
-        st.success('Your Smoothie is ordered!', icon="✅")
+        st.success('Your Smoothie is ordered, ', name_on_order,  icon="✅")
 
     # st.write(my_insert_stmt)
 
