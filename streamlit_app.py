@@ -59,7 +59,7 @@ if ingredients_list:
 
     # SQL script after building the ingredients string 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
-            values ('""" + ingredients_string + """','"""+ name_on_order +"""', '""" + search_on + """')"""
+            values ('""" + ingredients_string + """','"""+ name_on_order +"""')"""
 
     # create a button 
     time_to_insert = st.button(
