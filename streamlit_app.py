@@ -12,9 +12,6 @@ st.write(
     """
 )
 
-# request from api
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-
 # Name box 
 name_on_order = st.text_input('Name on Smoothie:')
 st.write('The name on your Smoothie will be:', name_on_order)
@@ -31,8 +28,6 @@ ingredients_list = st.multiselect(
     my_dataframe,
     max_selections = 5
 )
-# display the response on api request.
-fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
 # check if the ingredients_list has values 
 if ingredients_list:
@@ -41,6 +36,10 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         # increment the values to the ingredient_strings.
         ingredients_string += fruit_chosen + ' '
+        # request from api
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+        # display the response on api request.
+        fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
     # output the ingredients_string after incrementing 
     st.write(ingredients_string)
