@@ -37,8 +37,9 @@ if ingredients_list:
         # increment the values to the ingredient_strings.
         ingredients_string += fruit_chosen + ' '
         # request from api
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-        # display the response on api request.
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_chosen)
+        # display the response on api request with its subheader.
+        st.subheader(fruit_chosen + 'Nutrition Information')
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
     # output the ingredients_string after incrementing 
